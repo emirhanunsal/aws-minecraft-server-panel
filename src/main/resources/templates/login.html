@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign in · Minecraft Server Controller</title>
+  <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<main class="panel login-panel">
+  <div class="eyebrow">SECURE ACCESS</div>
+  <h1>Sign in</h1>
+  <p class="login-intro">Enter your controller credentials to manage the server.</p>
+  <div th:if="${param.error}" class="message error">Invalid username or password.</div>
+  <div th:if="${param.logout}" class="message">You have signed out.</div>
+  <form th:action="@{/login}" method="post" class="login-form">
+    <label>Username<input name="username" type="text" autocomplete="username" required autofocus></label>
+    <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+    <button class="primary" type="submit">Sign in</button>
+  </form>
+</main>
+</body>
+</html>

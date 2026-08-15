@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="_csrf" th:content="${_csrf.token}"><meta name="_csrf_header" th:content="${_csrf.headerName}">
+  <title>Minecraft Server Controller</title>
+  <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<main class="panel">
+  <div class="eyebrow">SERVER CONTROL PANEL</div>
+  <h1>Minecraft Server Controller</h1>
+  <section class="status-card" aria-live="polite">
+    <div><span class="label">Current status</span><span id="status" class="badge unknown">UNKNOWN</span></div>
+    <span id="loader" class="loader hidden" aria-label="Loading"></span>
+  </section>
+  <div id="message" class="message hidden" role="status"></div>
+  <div class="actions">
+    <button id="start" class="primary" type="button">Start Server</button>
+    <button id="stop" class="danger" type="button">Stop Server</button>
+  </div>
+  <section class="address">
+    <div><span class="label">Minecraft address</span><code id="address" th:text="${minecraftAddress}">localhost</code></div>
+    <button id="copy" class="secondary" type="button">Copy Address</button>
+  </section>
+  <p class="notice">Starting the server can take one or two minutes. Status refreshes automatically every 10 seconds.</p>
+  <form class="logout" th:action="@{/logout}" method="post"><button class="link-button" type="submit">Sign out</button></form>
+</main>
+<script th:src="@{/js/app.js}" defer></script>
+</body>
+</html>
