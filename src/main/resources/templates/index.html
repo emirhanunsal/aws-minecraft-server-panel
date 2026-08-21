@@ -12,7 +12,10 @@
   <h1>Minecraft Server Controller</h1>
   <section class="status-card" aria-live="polite">
     <div><span class="label">Current status</span><span id="status" class="badge unknown">UNKNOWN</span></div>
-    <span id="loader" class="loader hidden" aria-label="Loading"></span>
+    <div class="status-actions">
+      <span id="loader" class="loader hidden" aria-label="Loading"></span>
+      <button id="refresh" class="secondary" type="button">Refresh</button>
+    </div>
   </section>
   <div id="message" class="message hidden" role="status"></div>
   <div class="actions">
@@ -23,7 +26,7 @@
     <div><span class="label">Minecraft address</span><code id="address" th:text="${minecraftAddress}">localhost</code></div>
     <button id="copy" class="secondary" type="button">Copy Address</button>
   </section>
-  <p class="notice">Starting the server can take one or two minutes. Status refreshes automatically every 10 seconds.</p>
+  <p class="notice">Starting the server can take one or two minutes. Use Refresh to check the latest status.</p>
   <form class="logout" th:action="@{/logout}" method="post"><button class="link-button" type="submit">Sign out</button></form>
 </main>
 <script th:src="@{/js/app.js}" defer></script>
